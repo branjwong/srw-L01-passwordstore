@@ -1,40 +1,93 @@
-# srw-L01-passwordstore
-Security Review Workspace: Learning 01 PasswordStore
 
-# Rekt Test Results
+# PasswordStore
 
-1. Do you have all actors, roles, and privileges documented?
->> No
+<br/>
+<p align="center">
+<img src="./password-store-logo.png" width="400" alt="password-store">
+</p>
+<br/>
 
-1. Do you keep documentation of all the external services, contracts, and oracles you rely on?
->> No
+A smart contract applicatoin for storing a password. Users should be able to store a password and then retrieve it later. Others should not be able to access the password. 
 
-1. Do you have a written and tested incident response plan?
->> No
+[Testnet deployment](https://sepolia.etherscan.io/address/0x2ecf6ad327776bf966893c96efb24c9747f6694b)
 
-1. Do you document the best ways to attack your system?
->> No
+- [PasswordStore](#passwordstore)
+- [Getting Started](#getting-started)
+  - [Requirements](#requirements)
+  - [Quickstart](#quickstart)
+- [Usage](#usage)
+  - [Deploy (local)](#deploy-local)
+  - [Testing](#testing)
+    - [Test Coverage](#test-coverage)
+- [Audit Scope Details](#audit-scope-details)
+  - [Roles](#roles)
 
-1. Do you perform identity verification and background checks on all employees?
->> No
+# Getting Started
 
-1. Do you have a team member with security defined in their role?
->> No
+## Requirements
 
-1. Do you require hardware security keys for production systems?
->> No
+- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+  - You'll know you did it right if you can run `git --version` and you see a response like `git version x.x.x`
+- [foundry](https://getfoundry.sh/)
+  - You'll know you did it right if you can run `forge --version` and you see a response like `forge 0.2.0 (816e00b 2023-03-16T00:05:26.396218Z)`
 
-1. Does your key management system require multiple humans and physical steps?
->> No
+## Quickstart
 
-1. Do you define key invariants for your system and test them on every commit?
->> No
+```
+git clone https://github.com/Cyfrin/3-passwordstore-audit
+cd 3-passwordstore-audit
+forge build
+```
 
-1. Do you use the best automated tools to discover security issues in your code?
->> No
+# Usage
 
-1. Do you undergo external audits and maintain a vulnerability disclosure or bug bounty program?
->> No
+## Deploy (local)
 
-1. Have you considered and mitigated avenues for abusing users of your system?
->> No
+1. Start a local node
+
+```
+make anvil
+```
+
+2. Deploy
+
+This will default to your local node. You need to have it running in another terminal in order for it to deploy.
+
+```
+make deploy
+```
+
+## Testing
+
+```
+forge test
+```
+
+### Test Coverage
+
+```
+forge coverage
+```
+
+and for coverage based testing: 
+
+```
+forge coverage --report debug
+```
+
+# Audit Scope Details
+
+- Commit Hash:  7d55682ddc4301a7b13ae9413095feffd9924566
+- In Scope:
+```
+./src/
+└── PasswordStore.sol
+```
+- Solc Version: 0.8.18
+- Chain(s) to deploy contract to: Ethereum
+
+## Roles
+
+- Owner: The user who can set the password and read the password.
+- Outsides: No one else should be able to set or read the password.
+
