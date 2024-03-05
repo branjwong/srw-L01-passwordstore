@@ -1,4 +1,16 @@
-# H-01 - anyone can set the password
+### [S-1] Variables stored on-chain are visible to anyone so non-owners can check password.
+
+**Description:** 
+
+**Impact:** 
+
+**Proof of Concept:**
+
+### [S-2] No check for s_owner allows for anyone to set password
+
+**Description:** 
+
+The `setPassword` method should check that caller is owner, so that non-owners cannot set password. This check is missing, so anyone can set password. 
 
 https://github.com/Cyfrin/3-passwordstore-audit/blob/53ca9cb1808e58d3f14d5853aada6364177f6e53/src/PasswordStore.sol#L26C5-L29C6
 
@@ -9,9 +21,11 @@ function setPassword(string memory newPassword) external {
     }
 ```
 
-- No check for msg.sender == s_owner
+**Impact:** 
 
-## Proof of Concept
+s_owner can lose their recorded password and lose access to their protected resource.
+
+**Proof of Concept:**
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -45,3 +59,7 @@ contract PasswordStoreTest is Test {
     }
 }
 ```
+
+**Recommended Mitigation:** 
+
+check for msg.sender == s_owner
