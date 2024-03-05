@@ -1,4 +1,4 @@
-# M - anyone can set the password
+# H-01 - anyone can set the password
 
 https://github.com/Cyfrin/3-passwordstore-audit/blob/53ca9cb1808e58d3f14d5853aada6364177f6e53/src/PasswordStore.sol#L26C5-L29C6
 

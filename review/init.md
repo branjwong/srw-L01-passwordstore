@@ -11,5 +11,4 @@ The contract can be broken so that:
 1. users cannot retrieve a password.
 2. users cannot store a password.
 3. a user can retrieve another user's password.
-
-
+4. [H-01] a user can store a password for a contract they do not own.
