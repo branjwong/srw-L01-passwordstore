@@ -239,14 +239,9 @@ The natspec for `PasswordStore::getPassword` function mentions a `newPassword` p
 ```javascript
 /*
   * @notice This allows only the owner to retrieve the password.
-  * @param newPassword The new password to set.
+> * @param newPassword The new password to set.
   */
 function getPassword() external view returns (string memory) {
-    if (msg.sender != s_owner) {
-        revert PasswordStore__NotOwner();
-    }
-    return s_password;
-}
 ```
 
 </details>
@@ -270,11 +265,6 @@ Remove the following line from `PasswordStore::getPassword`.
 - * @param newPassword The new password to set.
   */
 function getPassword() external view returns (string memory) {
-    if (msg.sender != s_owner) {
-        revert PasswordStore__NotOwner();
-    }
-    return s_password;
-}
 ```
 
 </details>
