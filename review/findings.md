@@ -1,4 +1,4 @@
-### [S-1] Variables stored on-chain are visible to anyone so non-owners can check password.
+### [H-1] Variables stored on-chain are visible to anyone so non-owners can check password.
 
 **Description:**
 
@@ -55,7 +55,7 @@ myPassword
 
 Due to this, the overall architecture of the contract should be rethought. One could encrypt the password off-chain, and then store the encrypted password on-chain. This would require the user to remember another password off-chain to decrypt the password. However, you'd likely want to remove the view function as you wouldn't want the user to accientally send a transaction with the password that decrypts your password.
 
-### [S-2] `PasswordStore::setPassword` has no access controls, a non-owner can change the password
+### [H-2] `PasswordStore::setPassword` has no access controls, a non-owner can change the password
 
 **Description:**
 
@@ -122,7 +122,7 @@ function setPassword(string memory newPassword) external {
 
 </details>
 
-### [S-3] The natspec for `PasswordStore::getPassword` mentions a missing parameter, causing confusion
+### [I-1] The natspec for `PasswordStore::getPassword` mentions a missing parameter, causing confusion
 
 **Description:**
 
