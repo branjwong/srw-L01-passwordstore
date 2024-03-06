@@ -28,8 +28,8 @@ header-includes:
 <!-- Your report starts here! -->
 
 Prepared by: [mPTYmem](https://github.com/branjwong)
-Lead Auditors:
-- mPTYmem
+
+Lead Auditors: mPTYmem
 
 # Table of Contents
 - [Table of Contents](#table-of-contents)
@@ -43,14 +43,11 @@ Lead Auditors:
   - [Issues found](#issues-found)
 - [Findings](#findings)
 - [High](#high)
-- [Medium](#medium)
-- [Low](#low)
 - [Informational](#informational)
-- [Gas](#gas)
 
 # Protocol Summary
 
-Protocol does X, Y, Z
+A smart contract applicatoin for storing a password. Users should be able to store a password and then retrieve it later. Others should not be able to access the password.
 
 # Disclaimer
 
@@ -90,9 +87,7 @@ Commit Hash:
 
 # Executive Summary
 
-X hours
-Z auditors
-Y tools
+This audit took mPTYmem 10 hours to complete. Foundry, tintinweb.solidity-metrics, tintinweb.solidity-visual-auditor, pandoc, and LaTeX were used to create this report.
 
 # Issues Found
 
@@ -120,7 +115,6 @@ There is one such method of reading any data off chain shown below.
 **Proof of Concept:**
 
 The below test case can show how anyone can read data off chain.
-
 
 <details>
 
@@ -252,7 +246,7 @@ function getPassword() external view returns (string memory) {
         revert PasswordStore__NotOwner();
     }
     return s_password;
-    }
+}
 ```
 
 </details>
@@ -280,8 +274,7 @@ function getPassword() external view returns (string memory) {
         revert PasswordStore__NotOwner();
     }
     return s_password;
-    }
+}
 ```
 
 </details>
-
